@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\BuildManager.cs" />
      <Compile Include="Assets\BulletMovement.cs" />
+     <Compile Include="Assets\CameraController.cs" />
      <Compile Include="Assets\EnemyMovement.cs" />
      <Compile Include="Assets\NodeController.cs" />
      <Compile Include="Assets\StandardTurret.cs" />

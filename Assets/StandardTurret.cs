@@ -42,20 +42,16 @@ public class StandardTurret : MonoBehaviour {
 		//enemy out range
 		if (m_target != null && Vector3.Distance (transform.position, m_target.position) > m_range) {
 			m_target = null;
-			Debug.Log ("first");
 		}
 		//choose an enemy to aim
 		if (m_target == null) {
-			Debug.Log ("second");
 			GameObject[] enemies = GameObject.FindGameObjectsWithTag (enemy_Tag);
 			float shortest_distance = m_range;
-			Debug.Log ("enemies count: " + enemies.Length);
 			foreach (GameObject enemy in enemies) {
 				float distance_to_enemy = Vector3.Distance (transform.position, enemy.transform.position);
 				if (distance_to_enemy <= shortest_distance) {
 					shortest_distance = distance_to_enemy;
 					m_target = enemy.transform;
-					Debug.Log (enemy.name);
 				}
 			}
 		}
