@@ -46,9 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LevelSelect.cs" />
+     <Compile Include="Assets\LevelSelecter.cs" />
      <Compile Include="Assets\SceneFader.cs" />
-     <Compile Include="Assets\Scripts\Buttons\GameOverEvents.cs" />
+     <Compile Include="Assets\Scripts\Buttons\GameStopEvents.cs" />
      <Compile Include="Assets\Scripts\Buttons\MainMenuEvents.cs" />
      <Compile Include="Assets\Scripts\Buttons\SoundButton.cs" />
      <Compile Include="Assets\Scripts\Managers\BuildManager.cs" />

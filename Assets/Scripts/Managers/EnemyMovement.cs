@@ -9,13 +9,11 @@ public class EnemyMovement : MonoBehaviour {
 	private Transform[] m_Waypoints;
 	private int m_cur_Waypoint_Index;
 	private Transform m_transform;
-	private Rigidbody m_ridgidbody;
 
 	void Start()
 	{
 		m_Waypoints = Waypoints.points;
 		m_transform = GetComponent<Transform>();
-		m_ridgidbody = GetComponent<Rigidbody>();
 		m_cur_Waypoint_Index = 0;
 	}
 
