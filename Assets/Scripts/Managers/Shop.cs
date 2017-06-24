@@ -14,6 +14,12 @@ public class Shop : MonoBehaviour {
 		buildManager = BuildManager.instance;
 	}
 
+	public void CancelSelect()
+	{
+		if (buildManager.setTurretToBuild (null))
+			Debug.Log ("Canceled Selection");
+	}
+
 	public void SelectStandardTurret()
 	{
 		if (buildManager.setTurretToBuild (Standard_Turret_Prefab))

@@ -6,6 +6,7 @@ public class StandardTurret : MonoBehaviour {
 	public float m_turn_Speed = 10f;
 	public float m_fire_Rate = 2f;
 	public float m_range = 15f;
+	public int m_cost = 100;
 	public Transform m_turret;
 	public string enemy_Tag = "Enemy";
 	public GameObject Bullet_Prefab;
@@ -68,6 +69,9 @@ public class StandardTurret : MonoBehaviour {
 		GameObject bullet = (GameObject)Instantiate (Bullet_Prefab, m_turret.transform.GetChild (0).position, m_turret.transform.GetChild (0).rotation);
 		bullet.GetComponent<BulletMovement> ().Fired (m_range);
 	}
+
+	public int GetCost()
+	{return m_cost;}
 
 	void OnDrawGizmosSelected()
 	{

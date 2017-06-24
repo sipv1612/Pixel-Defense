@@ -18,17 +18,34 @@ public class NodeController : MonoBehaviour {
 
 	void OnMouseEnter()
 	{
+		if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject ()) {
+			OnMouseExit ();
+			return;
+		}
 		m_render.material.color = m_highlight_color;
 	}
 
 	void OnMouseDown()
 	{
+		if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject ()) {
+			OnMouseExit ();
+			return;
+		}
 		if (m_turret != null) {
 			Debug.Log ("Turret exist already!");
 			return;
 		}
-		if (BuildManager.instance.getTurretToBuild () != null)
+		//build Turret
+		if (BuildManager.instance.getTurretToBuild () != null) {
+			
+			//if player don't have enough money to build then do nothing and return
+			if (!BuildManager.instance.UseMoney (BuildManager.instance.getTurretToBuild ().GetComponent<StandardTurret> ().GetCost ()))
+				return;
+			
+			//else
 			m_turret = (GameObject)Instantiate (BuildManager.instance.getTurretToBuild (), transform.position + turret_offset, transform.rotation);
+			BuildManager.instance.setTurretToBuild (null);
+		}
 	}
 
 	void OnMouseExit()
