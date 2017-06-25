@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NodeController : MonoBehaviour {
 	public Color m_highlight_color;
-	public Vector3 turret_offset;
 
 	private Color m_default_color;
 	private Renderer m_render;
@@ -43,7 +42,8 @@ public class NodeController : MonoBehaviour {
 				return;
 			
 			//else
-			m_turret = (GameObject)Instantiate (BuildManager.instance.getTurretToBuild (), transform.position + turret_offset, transform.rotation);
+			Vector3 turret_position = new Vector3(transform.position.x, BuildManager.instance.getTurretToBuild ().transform.position.y, transform.position.z);
+			m_turret = (GameObject)Instantiate (BuildManager.instance.getTurretToBuild (), turret_position, transform.rotation);
 			BuildManager.instance.setTurretToBuild (null);
 		}
 	}

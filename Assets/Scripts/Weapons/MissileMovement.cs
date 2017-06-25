@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MissileMovement: MonoBehaviour {
-	public float m_speed = 5f;
+public class MissileMovement : MonoBehaviour {
+	public float m_speed = 15f;
 	public string Enemy_Tag = "Enemy";
 	public GameObject m_Hit_Effect;
 
@@ -26,10 +26,15 @@ public class MissileMovement: MonoBehaviour {
 			Reset();
 	}
 
+	public void SetPosition (Vector3 _pos)
+	{
+		transform.position = _pos;
+	}
+
 	public void Fired(float _range)
 	{
 		gameObject.SetActive (true);
-		GetComponent<Rigidbody>().velocity = transform.up * m_speed;
+		GetComponent<Rigidbody>().velocity = transform.forward * m_speed;
 		m_range = _range;
 		is_ready = false;
 	}

@@ -8,12 +8,13 @@ public class StandardTurret : MonoBehaviour {
 	public float m_range = 15f;
 	public int m_cost = 100;
 	public Transform m_turret;
+	public Transform m_fire_point;
 	public string enemy_Tag = "Enemy";
 	public GameObject Bullet_Prefab;
 
 	private Transform m_target;
 	private float m_fire_Countdown;
-
+	private GameObject m_bullet;
 	//tesing purpose
 
 	void Start()
@@ -21,6 +22,7 @@ public class StandardTurret : MonoBehaviour {
 		m_target = null;
 		m_fire_Countdown = 0;
 		InvokeRepeating ("ScanEnemy", 0f, 0.25f);
+		m_bullet = (GameObject)Instantiate (Bullet_Prefab);
 
 	}
 		
@@ -66,8 +68,18 @@ public class StandardTurret : MonoBehaviour {
 
 	void Shoot()
 	{
-		GameObject bullet = (GameObject)Instantiate (Bullet_Prefab, m_turret.transform.GetChild (0).position, m_turret.transform.GetChild (0).rotation);
-		bullet.GetComponent<BulletMovement> ().Fired (m_range);
+		if (CompareTag ("Standard Turret")) {
+			m_bullet.GetComponent<BulletMovement> ().SetPosition (m_fire_point.position);
+			m_bullet.GetComponent<BulletMovement> ().transform.rotation = m_turret.rotation;
+			m_bullet.GetComponent<BulletMovement> ().Fired (m_range);
+			return;
+		}
+
+		if (CompareTag ("Missile Launcher")) {
+			m_bullet.GetComponent<MissileMovement> ().SetPosition (m_fire_point.position);
+			m_bullet.GetComponent<MissileMovement> ().transform.rotation = m_turret.rotation;
+			m_bullet.GetComponent<MissileMovement> ().Fired (m_range);
+		}
 	}
 
 	public int GetCost()

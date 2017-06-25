@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMovement : MonoBehaviour {
-	public float m_speed = 5f;
+	public float m_speed = 30f;
 	public string Enemy_Tag = "Enemy";
 	public GameObject m_Hit_Effect;
 
@@ -24,6 +24,11 @@ public class BulletMovement : MonoBehaviour {
 			flied_Distance += GetComponent<Rigidbody> ().velocity.magnitude * Time.deltaTime;
 		if (flied_Distance >= m_range)
 			Reset();
+	}
+
+	public void SetPosition (Vector3 _pos)
+	{
+		transform.position = _pos;
 	}
 
 	public void Fired(float _range)

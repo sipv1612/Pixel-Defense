@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shop : MonoBehaviour {
 
 	public GameObject Standard_Turret_Prefab;
-	public GameObject Another_Turret_Prefab;
+	public GameObject Missile_Laucher_Prefab;
 
 	private BuildManager buildManager;
 
@@ -26,10 +26,10 @@ public class Shop : MonoBehaviour {
 			Debug.Log ("Standard turret selected");
 	}
 
-	public void SelectAnotherTurret()
+	public void SelectMissileLauncher()
 	{
-		if (buildManager.setTurretToBuild (Another_Turret_Prefab))
-			Debug.Log ("Another turret selected");
+		if (buildManager.setTurretToBuild (Missile_Laucher_Prefab))
+			Debug.Log ("Missile Launcher selected");
 	}
 
 }
