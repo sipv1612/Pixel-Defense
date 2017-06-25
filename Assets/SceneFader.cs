@@ -45,4 +45,9 @@ public class SceneFader : MonoBehaviour {
 		SceneManager.LoadScene (_scene);
 	}
 
+	public void ExitGame()
+	{
+		Application.Quit ();
+	}
+
 }

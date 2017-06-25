@@ -77,8 +77,8 @@ public class StandardTurret : MonoBehaviour {
 
 		if (CompareTag ("Missile Launcher")) {
 			m_bullet.GetComponent<MissileMovement> ().SetPosition (m_fire_point.position);
-			m_bullet.GetComponent<MissileMovement> ().transform.rotation = m_turret.rotation;
-			m_bullet.GetComponent<MissileMovement> ().Fired (m_range);
+			m_bullet.GetComponent<MissileMovement> ().SetRotation (m_fire_point.rotation);
+			m_bullet.GetComponent<MissileMovement> ().Fired (m_target);
 		}
 	}
 

@@ -31,6 +31,11 @@ public class BulletMovement : MonoBehaviour {
 		transform.position = _pos;
 	}
 
+	public void SetRotation (Quaternion _pos)
+	{
+		transform.rotation = _pos;
+	}
+
 	public void Fired(float _range)
 	{
 		gameObject.SetActive (true);
